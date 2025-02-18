@@ -33,10 +33,11 @@ curl -X POST "http://localhost:5000/text/analytics/v3.0/sentiment" \
   -H "Content-Type: application/json" \
   --data-ascii "{'documents':[{'id':1,'text':'love you '}]}"
 ```
-Explicación de la solicitud:
--X POST: Realiza una solicitud HTTP POST.
--H "Content-Type: application/json": Especifica que el cuerpo de la solicitud es JSON.
---data-ascii: Envía el texto a analizar en formato JSON.
+### Explicación de la solicitud:
+- **`-X POST`**: Realiza una solicitud HTTP POST.
+- **`-H "Content-Type: application/json"`**: Especifica que el cuerpo de la solicitud es JSON.
+- **`--data-ascii`**: Envía el texto a analizar en formato JSON.
+
 
 
 
