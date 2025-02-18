@@ -25,21 +25,40 @@ def main():
             # Read the file contents
             print('\n-------------\n' + file_name)
             text = open(os.path.join(reviews_folder, file_name), encoding='utf8').read()
-            print('\n' + text)
+            #print('\n' + text)
 
             # Get language
+            detectedLanguage = ai_client.detect_language(documents=[text])[0]
+            print('\nLanguage: {}'.format(detectedLanguage.primary_language.name))
 
 
-            # Get sentiment
+             # Get sentiment
+            sentimentAnalysis = ai_client.analyze_sentiment(documents=[text])[0]
+            print("\nSentiment: {}".format(sentimentAnalysis.sentiment))
 
 
-            # Get key phrases
+             # Get key phrases
+            phrases = ai_client.extract_key_phrases(documents=[text])[0].key_phrases
+            if len(phrases) > 0:
+                print("\nKey Phrases:")
+                for phrase in phrases:
+                    print('\t{}'.format(phrase))
 
 
-            # Get entities
+             # Get entities
+            entities = ai_client.recognize_entities(documents=[text])[0].entities
+            if len(entities) > 0:
+                print("\nEntities")
+                for entity in entities:
+                    print('\t{} ({})'.format(entity.text, entity.category))
 
 
-            # Get linked entities
+             # Get linked entities
+            entities = ai_client.recognize_linked_entities(documents=[text])[0].entities
+            if len(entities) > 0:
+                print("\nLinks")
+                for linked_entity in entities:
+                    print('\t{} ({})'.format(linked_entity.name, linked_entity.url))
 
 
 
