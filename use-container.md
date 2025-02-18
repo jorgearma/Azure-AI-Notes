@@ -13,7 +13,7 @@ sudo docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
   Eula=accept \
   Billing=https://juancho.cognitiveservices.azure.com/ \
   ApiKey=3wAP0tnQtS6H5ycAcKzjcBaT8tqLEeSE9RAkgq351kVPrEb8ujZNJQQJ99BBACi5YpzXJ3w3AAAEACOGdAm 
-
+```
 
   Explicación de los parámetros:
 
@@ -28,11 +28,11 @@ Billing: URL de tu recurso de Azure Cognitive Services.
 ApiKey: Clave de API para autenticar el servicio.
 
 
-
+```bash
 curl -X POST "http://localhost:5000/text/analytics/v3.0/sentiment" \
   -H "Content-Type: application/json" \
   --data-ascii "{'documents':[{'id':1,'text':'love you '}]}"
-
+```
 
 Explicación de la solicitud:
 -X POST: Realiza una solicitud HTTP POST.
