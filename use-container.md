@@ -15,17 +15,15 @@ sudo docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
   ApiKey=3wAP0tnQtS6H5ycAcKzjcBaT8tqLEeSE9RAkgq351kVPrEb8ujZNJQQJ99BBACi5YpzXJ3w3AAAEACOGdAm 
 ```
 
-  Explicación de los parámetros:
-
-
---rm:   Elimina el contenedor una vez que se detenga.
--it:     Mantiene la interacción con la terminal.
--p  5000:5000: Expone el puerto 5000 del contenedor a la máquina local.
---memory 8g --cpus 1: Limita los recursos del contenedor.
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:latest: Imagen de Docker para el servicio de análisis de sentimiento.
-Eula=accept: Acepta el acuerdo de licencia.
-Billing: URL de tu recurso de Azure Cognitive Services.
-ApiKey: Clave de API para autenticar el servicio.
+ ### Explicación de los parámetros:
+- **`--rm`**: Elimina el contenedor una vez que se detenga.
+- **`-it`**: Mantiene la interacción con la terminal.
+- **`-p 5000:5000`**: Expone el puerto 5000 del contenedor a la máquina local.
+- **`--memory 8g --cpus 1`**: Limita los recursos del contenedor.
+- **`mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:latest`**: Imagen de Docker para el servicio de análisis de sentimiento.
+- **`Eula=accept`**: Acepta el acuerdo de licencia.
+- **`Billing`**: URL de tu recurso de Azure Cognitive Services.
+- **`ApiKey`**: Clave de API para autenticar el servicio.
 
 
 ```bash
