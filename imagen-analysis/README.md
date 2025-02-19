@@ -1,6 +1,6 @@
 # Azure AI Vision - Análisis de Imágenes
 
-Este repositorio contiene un ejemplo de código para utilizar el servicio de Azure AI Vision para analizar imágenes de manera programática.
+Este repositorio contiene un ejemplo y explicacion del SDK en python de azure IA para analisis de imagen
 
 ## 📌 Importaciones
 
@@ -37,8 +37,6 @@ client = ImageAnalysisClient(
 - Se obtienen las credenciales desde las variables de entorno (`ENDPOINT` y `KEY`).
 - Se utiliza **AzureKeyCredential** para la autenticación.
 
-> ⚠️ **Nota:** Asegúrate de configurar correctamente las variables de entorno antes de ejecutar el código.
-
 ---
 
 ## 🖼️ Análisis de la Imagen
@@ -63,12 +61,7 @@ result = client.analyze(
 
 ---
 
-## 🔍 Resumen
 
-Este código utiliza el servicio **Azure AI Vision** para analizar una imagen remota y obtener:
-
-✅ Una descripción textual de la imagen.
-✅ Extracción de texto (OCR) presente en la imagen.
 
 ### 📌 Requisitos
 - Tener una cuenta en **Azure** con el servicio **AI Vision** habilitado.
@@ -84,5 +77,5 @@ Para más información, consulta la [documentación de Azure AI Vision](https://
 
 ---
 
-🚀 **Ahora puedes comenzar a analizar imágenes con Azure AI Vision!**
+
 
