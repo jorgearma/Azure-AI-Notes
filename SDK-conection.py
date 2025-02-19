@@ -9,21 +9,21 @@ def main():
     global ai_endpoint  # Definir la variable global para el endpoint
     global ai_key  # Definir la variable global para la clave API
     try:
-        # Obtener la configuración desde el archivo .env
-        load_dotenv()  # Cargar las variables de entorno desde el archivo .env
-        ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')  # Obtener el endpoint de la API de Azure desde las variables de entorno
-        ai_key = os.getenv('AI_SERVICE_KEY')  # Obtener la clave de suscripción desde las variables de entorno
+        
+        load_dotenv()  
+        ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')  # 
+        ai_key = os.getenv('AI_SERVICE_KEY')  
 
         # Solicitar la entrada del usuario (hasta que escriba "quit")
         userText = ''
-        while userText.lower() != 'quit':  # El bucle continuará hasta que el usuario escriba "quit"
-            userText = input('\nEnter some text ("quit" to stop)\n')  # Solicitar al usuario que ingrese un texto
-            if userText.lower() != 'quit':  # Si el usuario no escribe "quit"
-                language = GetLanguage(userText)  # Llamar a la función GetLanguage para detectar el idioma
-                print('Language:', language)  # Imprimir el idioma detectado
+        while userText.lower() != 'quit':  #
+            userText = input('\nEnter some text ("quit" to stop)\n')  #
+            if userText.lower() != 'quit':  
+                language = GetLanguage(userText)  
+                print('Language:', language)  
 
     except Exception as ex:  # Capturar cualquier excepción
-        print(ex)  # Mostrar el error
+        print(ex)  
 
 # Función para detectar el idioma
 def GetLanguage(text):
@@ -32,7 +32,7 @@ def GetLanguage(text):
     client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)  # Crear el cliente de la API de Azure Text Analytics
     
     # Llamar al servicio para detectar el idioma del texto proporcionado
-    detectedLanguage = client.detect_language(documents=[text])[0]  # Detectar el idioma del texto
+    detectedLanguage = client.detect_language(documents=[text])[0]  
 
     # Retornar el nombre del idioma detectado
     return detectedLanguage.primary_language.name  # Extraer y devolver el nombre del idioma detectado

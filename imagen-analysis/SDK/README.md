@@ -49,6 +49,18 @@ result = client.analyze(
     language="en",
 )
 ```
+# Enumeración VisualFeatures
+
+Las características visuales disponibles se incluyen en la enumeración **VisualFeatures**:
+
+- **VisualFeatures.TAGS**: Identifica etiquetas sobre la imagen, incluidos objetos, paisajes, configuración y acciones.
+- **VisualFeatures.OBJECTS**: Devuelve el cuadro delimitador para cada objeto detectado.
+- **VisualFeatures.CAPTION**: Genera un título de la imagen en lenguaje natural.
+- **VisualFeatures.DENSE_CAPTIONS**: Genera subtítulos más detallados para los objetos detectados.
+- **VisualFeatures.PEOPLE**: Devuelve el *Bounding Box* para las personas detectadas.
+- **VisualFeatures.SMART_CROPS**: Devuelve el cuadro delimitador de la relación de aspecto especificada para el área de interés.
+- **VisualFeatures.READ**: Extrae texto legible.
+
 
 ### 📜 Explicación de los parámetros
 
