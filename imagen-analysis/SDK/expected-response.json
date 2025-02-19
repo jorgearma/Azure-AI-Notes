@@ -1,0 +1,32 @@
+{
+    "apim-request-id": "abcde-1234-5678-9012-f1g2h3i4j5k6",
+    "modelVersion": "<version>",
+    "denseCaptionsResult": {
+      "values": [
+        {
+          "text": "a house in the woods",
+          "confidence": 0.7055229544639587,
+          "boundingBox": {
+            "x": 0,
+            "y": 0,
+            "w": 640,
+            "h": 640
+          }
+        },
+        {
+          "text": "a trailer with a door and windows",
+          "confidence": 0.6675070524215698,
+          "boundingBox": {
+            "x": 214,
+            "y": 434,
+            "w": 154,
+            "h": 108
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "width": 640,
+      "height": 640
+    }
+  }
