@@ -56,6 +56,7 @@ def AnalyzeImage(image_filename, image_data, cv_client):
                 VisualFeatures.TAGS,
                 VisualFeatures.OBJECTS,
                 VisualFeatures.PEOPLE],
+                language="en"
         )
         
 
