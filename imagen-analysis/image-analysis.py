@@ -113,32 +113,41 @@ def AnalyzeImage(image_filename, image_data, cv_client):
         fig.savefig(outputfile)
         print('  Results saved in', outputfile)
 
-    # Get people in the image
-    if result.people is not None:
-        print("\nPeople in image:")
+            # Get people in the image
+        if result.people is not None:
+            print("\nPeople in image:")
 
-        # Prepare image for drawing
-        image = Image.open(image_filename)
-        fig = plt.figure(figsize=(image.width/100, image.height/100))
-        plt.axis('off')
-        draw = ImageDraw.Draw(image)
-        color = 'cyan'
+            # Contar el número de personas detectadas con confianza mayor a 0.3
+            filtered_people = [p for p in result.people.list if p.confidence > 0.05]
+            num_people = len(filtered_people)
+            print(f"Number of people detected: {num_people}")
 
-        for detected_people in result.people.list:
-            # Draw object bounding box
-            r = detected_people.bounding_box
-            bounding_box = ((r.x, r.y), (r.x + r.width, r.y + r.height))
-            draw.rectangle(bounding_box, outline=color, width=3)
+            # Preparar la imagen para el dibujo
+            image = Image.open(image_filename)
+            fig = plt.figure(figsize=(image.width / 100, image.height / 100))
+            plt.axis('off')
+            draw = ImageDraw.Draw(image)
+            color = 'cyan'
 
-            # Return the confidence of the person detected
-            #print(" {} (confidence: {:.2f}%)".format(detected_people.bounding_box, detected_people.confidence * 100))
-            
-        # Save annotated image
-        plt.imshow(image)
-        plt.tight_layout(pad=0)
-        outputfile = 'people.jpg'
-        fig.savefig(outputfile)
-        print('  Results saved in', outputfile)
+            for detected_person in filtered_people:
+                # Dibujar la caja de límite del objeto
+                r = detected_person.bounding_box
+                bounding_box = ((r.x, r.y), (r.x + r.width, r.y + r.height))
+                draw.rectangle(bounding_box, outline=color, width=3)
+                
+                # Obtener confianza y mostrarla en la imagen
+                confidence = detected_person.confidence
+                text_position = (r.x, r.y - 10)  # Posición del texto sobre la caja
+                draw.text(text_position, f"{confidence:.2f}", fill=color)
+                
+                print(f"Person detected with confidence: {confidence:.2f}")
+
+            # Guardar imagen anotada
+            plt.imshow(image)
+            plt.tight_layout(pad=0)
+            outputfile = 'people.jpg'
+            fig.savefig(outputfile)
+            print('  Results saved in', outputfile)
 
     
 
